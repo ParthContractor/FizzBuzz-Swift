@@ -82,9 +82,18 @@ class FizzBuzzVC: UIViewController {
         txtInput.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
         txtInput.delegate = self
         txtInput.keyboardType = .numberPad
+        self.title = "FizzBuzz Demo"
+        let btnSettings = UIBarButtonItem(image: UIImage(named: "SettingsIcon")
+            ,landscapeImagePhone: UIImage(named: "SettingsIcon")
+            , style: .plain, target: self, action: #selector(settings))
+        navigationItem.rightBarButtonItem = btnSettings
     }
     
     // MARK: - Actions/Events
+    @objc func settings() {
+        
+    }
+    
     @objc func textFieldDidChange(textField: UITextField){
         sliderInput.value = Float(AppConstants.fizzBuzzMinValue)
         if let textInput = textField.text, let sliderValue = Float(textInput) {
@@ -101,17 +110,27 @@ class FizzBuzzVC: UIViewController {
     // MARK: - Bindings
     private func setupBinding() {
         viewModel
-            .finalOutput
+            .fizzBuzzOutput
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (output) in
-                self.lblOutputValue.text = output
+                self.setAndAnimateOutput(output)
             })
             .disposed(by: disposeBag)
     }
     
-    // MARK: - Bindings
     private func getResult() {
         viewModel.fizzbuzz(number: Int(sliderInput.value))
+    }
+    
+    private func setAndAnimateOutput(_ output: String) {
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            self.lblOutputValue.transform = .init(scaleX: 1.25, y: 1.25)
+        }) { (finished: Bool) -> Void in
+            self.lblOutputValue.text = output
+            UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                self.lblOutputValue.transform = .identity
+            })
+        }
     }
 
 }
@@ -122,6 +141,4 @@ extension FizzBuzzVC: UITextFieldDelegate {
         let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         return Utility.isInputValid(newString)
     }
-    
 }
-

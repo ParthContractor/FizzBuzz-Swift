@@ -11,32 +11,32 @@ import RxCocoa
 
 class FizzBuzzViewModel {
         
-    public let finalOutput : PublishSubject<String> = PublishSubject()
+    public let fizzBuzzOutput : PublishSubject<String> = PublishSubject()
 
     private let disposable = DisposeBag()
 
     func fizzbuzz(number: Int) -> Void {
         if number == 0 {
-            self.finalOutput.onNext(String())
+            self.fizzBuzzOutput.onNext(String())
             return
         }
         switch (number.isMultiple(of: 3), number.isMultiple(of: 5), number.isMultiple(of: 7)) {
         case (true, false, false):
-            self.finalOutput.onNext(String("Fizzy"))
+            self.fizzBuzzOutput.onNext(String("Fizzy"))
         case (false, true, false):
-            self.finalOutput.onNext(String("Buzzy"))
+            self.fizzBuzzOutput.onNext(String("Buzzy"))
         case (false, false, true):
-            self.finalOutput.onNext(String("Foo"))
+            self.fizzBuzzOutput.onNext(String("Foo"))
         case (true, true, false):
-            self.finalOutput.onNext(String("FizzyBuzzy"))
+            self.fizzBuzzOutput.onNext(String("FizzyBuzzy"))
         case (true, false, true):
-            self.finalOutput.onNext(String("FizzyFoo"))
+            self.fizzBuzzOutput.onNext(String("FizzyFoo"))
         case (false, true, true):
-            self.finalOutput.onNext(String("BuzzyFoo"))
+            self.fizzBuzzOutput.onNext(String("BuzzyFoo"))
         case (true, true, true):
-            self.finalOutput.onNext(String("FizzyBuzzyFoo"))
+            self.fizzBuzzOutput.onNext(String("FizzyBuzzyFoo"))
         case (false, false, false):
-            self.finalOutput.onNext(String(number))
+            self.fizzBuzzOutput.onNext(String(number))
         }
     }
 }

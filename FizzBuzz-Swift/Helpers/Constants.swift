@@ -11,7 +11,7 @@ import UIKit
 struct AppConstants {
     static let dataUnAvailable = "N/A"
     static let fizzBuzzMinValue = 0
-    static let fizzBuzzMaxValue = 1000
+    static let fizzBuzzMaxValue = 10000
 }
 
 extension UIFont {
