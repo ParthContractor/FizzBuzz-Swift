@@ -66,11 +66,14 @@ class FizzBuzzVC: UIViewController {
         }
     }
     
+    var viewModel = FizzBuzzViewModel()
+    let disposeBag = DisposeBag()
     
     // MARK: - Initial Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetUp()
+        setupBinding()
     }
     
     private func initialSetUp() {
@@ -84,16 +87,33 @@ class FizzBuzzVC: UIViewController {
     // MARK: - Actions/Events
     @objc func textFieldDidChange(textField: UITextField){
         sliderInput.value = Float(AppConstants.fizzBuzzMinValue)
-        guard let textInput = textField.text, let sliderValue = Float(textInput) else {
-            return
+        if let textInput = textField.text, let sliderValue = Float(textInput) {
+            sliderInput.value = sliderValue
         }
-        sliderInput.value = sliderValue
-
+        getResult()
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         txtInput.text = "\(Int((round(sender.value))))"
+        getResult()
     }
+    
+    // MARK: - Bindings
+    private func setupBinding() {
+        viewModel
+            .finalOutput
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (output) in
+                self.lblOutputValue.text = output
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Bindings
+    private func getResult() {
+        viewModel.fizzbuzz(number: Int(sliderInput.value))
+    }
+
 }
 
 extension FizzBuzzVC: UITextFieldDelegate {
