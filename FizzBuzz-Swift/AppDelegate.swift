@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func decorateNavigationBarAppearance() {
-        UINavigationBar.appearance().barTintColor = UIColor.ThemeColor.navigationBarTintColor
-        UINavigationBar.appearance().tintColor = UIColor.ThemeColor.navigationTintColor
+        UINavigationBar.appearance().barTintColor = UIColor.ThemeColor.appThemeColor
+        UINavigationBar.appearance().tintColor = UIColor.ThemeColor.labelColor
         UILabel.appearance(whenContainedInInstancesOf: [UISegmentedControl.self]).numberOfLines = 0
     }
 }
