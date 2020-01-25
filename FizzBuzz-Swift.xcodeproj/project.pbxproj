@@ -3,18 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B2543BCA23DBF3B00088CD55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543BC923DBF3B00088CD55 /* AppDelegate.swift */; };
-		B2543BCC23DBF3B00088CD55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543BCB23DBF3B00088CD55 /* SceneDelegate.swift */; };
-		B2543BCE23DBF3B00088CD55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543BCD23DBF3B00088CD55 /* ViewController.swift */; };
-		B2543BD123DBF3B00088CD55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2543BCF23DBF3B00088CD55 /* Main.storyboard */; };
 		B2543BD323DBF3B30088CD55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2543BD223DBF3B30088CD55 /* Assets.xcassets */; };
 		B2543BD623DBF3B30088CD55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2543BD423DBF3B30088CD55 /* LaunchScreen.storyboard */; };
 		B2543BE123DBF3B40088CD55 /* FizzBuzz_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543BE023DBF3B40088CD55 /* FizzBuzz_SwiftTests.swift */; };
 		B2543BEC23DBF3B40088CD55 /* FizzBuzz_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543BEB23DBF3B40088CD55 /* FizzBuzz_SwiftUITests.swift */; };
+		B2543BFA23DBF5600088CD55 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543BF923DBF5600088CD55 /* Constants.swift */; };
+		B2543C0223DBF7320088CD55 /* FizzBuzzVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2543C0023DBF7320088CD55 /* FizzBuzzVC.swift */; };
+		B2543C0323DBF7320088CD55 /* FizzBuzzVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2543C0123DBF7320088CD55 /* FizzBuzzVC.xib */; };
+		B2543C1323DBFDDA0088CD55 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B2543C1223DBFDDA0088CD55 /* RxRelay */; };
+		B2543C1523DBFDDA0088CD55 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B2543C1423DBFDDA0088CD55 /* RxSwift */; };
+		B2543C1723DBFDDA0088CD55 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B2543C1623DBFDDA0088CD55 /* RxCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +40,6 @@
 /* Begin PBXFileReference section */
 		B2543BC623DBF3B00088CD55 /* FizzBuzz-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FizzBuzz-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2543BC923DBF3B00088CD55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B2543BCB23DBF3B00088CD55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B2543BCD23DBF3B00088CD55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B2543BD023DBF3B00088CD55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B2543BD223DBF3B30088CD55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2543BD523DBF3B30088CD55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B2543BD723DBF3B30088CD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +49,9 @@
 		B2543BE723DBF3B40088CD55 /* FizzBuzz-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FizzBuzz-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2543BEB23DBF3B40088CD55 /* FizzBuzz_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzz_SwiftUITests.swift; sourceTree = "<group>"; };
 		B2543BED23DBF3B40088CD55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2543BF923DBF5600088CD55 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B2543C0023DBF7320088CD55 /* FizzBuzzVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FizzBuzzVC.swift; sourceTree = "<group>"; };
+		B2543C0123DBF7320088CD55 /* FizzBuzzVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FizzBuzzVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +59,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2543C1723DBFDDA0088CD55 /* RxCocoa in Frameworks */,
+				B2543C1523DBFDDA0088CD55 /* RxSwift in Frameworks */,
+				B2543C1323DBFDDA0088CD55 /* RxRelay in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,9 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				B2543BC923DBF3B00088CD55 /* AppDelegate.swift */,
-				B2543BCB23DBF3B00088CD55 /* SceneDelegate.swift */,
-				B2543BCD23DBF3B00088CD55 /* ViewController.swift */,
-				B2543BCF23DBF3B00088CD55 /* Main.storyboard */,
+				B2543BF923DBF5600088CD55 /* Constants.swift */,
+				B2543BFC23DBF5E90088CD55 /* Model */,
+				B2543BFD23DBF5E90088CD55 /* View */,
+				B2543BFB23DBF5E90088CD55 /* ViewModel */,
 				B2543BD223DBF3B30088CD55 /* Assets.xcassets */,
 				B2543BD423DBF3B30088CD55 /* LaunchScreen.storyboard */,
 				B2543BD723DBF3B30088CD55 /* Info.plist */,
@@ -128,6 +135,29 @@
 			path = "FizzBuzz-SwiftUITests";
 			sourceTree = "<group>";
 		};
+		B2543BFB23DBF5E90088CD55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B2543BFC23DBF5E90088CD55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B2543BFD23DBF5E90088CD55 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B2543C0023DBF7320088CD55 /* FizzBuzzVC.swift */,
+				B2543C0123DBF7320088CD55 /* FizzBuzzVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +174,11 @@
 			dependencies = (
 			);
 			name = "FizzBuzz-Swift";
+			packageProductDependencies = (
+				B2543C1223DBFDDA0088CD55 /* RxRelay */,
+				B2543C1423DBFDDA0088CD55 /* RxSwift */,
+				B2543C1623DBFDDA0088CD55 /* RxCocoa */,
+			);
 			productName = "FizzBuzz-Swift";
 			productReference = B2543BC623DBF3B00088CD55 /* FizzBuzz-Swift.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +251,9 @@
 				Base,
 			);
 			mainGroup = B2543BBD23DBF3B00088CD55;
+			packageReferences = (
+				B2543C1123DBFDDA0088CD55 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = B2543BC723DBF3B00088CD55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -234,7 +272,7 @@
 			files = (
 				B2543BD623DBF3B30088CD55 /* LaunchScreen.storyboard in Resources */,
 				B2543BD323DBF3B30088CD55 /* Assets.xcassets in Resources */,
-				B2543BD123DBF3B00088CD55 /* Main.storyboard in Resources */,
+				B2543C0323DBF7320088CD55 /* FizzBuzzVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2543BCE23DBF3B00088CD55 /* ViewController.swift in Sources */,
 				B2543BCA23DBF3B00088CD55 /* AppDelegate.swift in Sources */,
-				B2543BCC23DBF3B00088CD55 /* SceneDelegate.swift in Sources */,
+				B2543C0223DBF7320088CD55 /* FizzBuzzVC.swift in Sources */,
+				B2543BFA23DBF5600088CD55 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +335,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B2543BCF23DBF3B00088CD55 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B2543BD023DBF3B00088CD55 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B2543BD423DBF3B30088CD55 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -584,6 +614,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2543C1123DBFDDA0088CD55 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2543C1223DBFDDA0088CD55 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2543C1123DBFDDA0088CD55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B2543C1423DBFDDA0088CD55 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2543C1123DBFDDA0088CD55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		B2543C1623DBFDDA0088CD55 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2543C1123DBFDDA0088CD55 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B2543BBE23DBF3B00088CD55 /* Project object */;
 }

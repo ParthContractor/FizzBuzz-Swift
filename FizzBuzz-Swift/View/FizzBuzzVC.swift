@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FizzBuzzVC.swift
 //  FizzBuzz-Swift
 //
 //  Created by Parth on 25/01/20.
@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class ViewController: UIViewController {
+class FizzBuzzVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
-
-
 }
-
