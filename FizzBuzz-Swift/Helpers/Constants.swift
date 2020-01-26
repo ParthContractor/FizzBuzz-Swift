@@ -12,6 +12,10 @@ struct AppConstants {
     static let dataUnAvailable = "N/A"
     static let fizzBuzzMinValue = 0
     static let fizzBuzzMaxValue = 10000
+    
+    //For now no offline storage(persistence) implemented..
+    //By default on every app launch this configuration will be considered and can be changed by user..
+    static let defaultConfig = [3 : "Fizzy", 5 : "Buzzy", 7 : "Foo", 9 : "Bar"]
 }
 
 extension UIFont {

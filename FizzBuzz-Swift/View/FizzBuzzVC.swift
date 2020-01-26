@@ -91,7 +91,21 @@ class FizzBuzzVC: UIViewController {
     
     // MARK: - Actions/Events
     @objc func settings() {
-        
+        UIView.transition(with: (self.navigationController?.view)!, duration: 0.75, options: .transitionFlipFromRight, animations: {
+            let configVC = FizzBuzzSettingsVC(nibName: "FizzBuzzSettingsVC", bundle: nil)
+            
+            configVC
+                .fizzBuzzConfigObject
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { (output) in
+                    self.viewModel.updateFizzBuzzModel(output)
+                    self.getResult()
+                    print("notified dict output..\(output)")
+                })
+                .disposed(by: self.disposeBag)
+
+            self.navigationController?.pushViewController(configVC, animated: false)
+        })
     }
     
     @objc func textFieldDidChange(textField: UITextField){

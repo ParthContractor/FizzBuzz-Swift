@@ -19,16 +19,32 @@ class FizzBuzz_SwiftTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFizzBuzzViewModel() {
+        let viewModel = FizzBuzzViewModel()
+        let dict = [3 : "Fizzy", 5 : "Buzzy", 7 : "Foo"]
+        let fizzBuzzConfigModel = FizzBuzzConfigModel(configDict: dict)
+        viewModel.updateFizzBuzzModel(fizzBuzzConfigModel)
+        
+        var output = viewModel.fizzbuzz(number: 3)
+        XCTAssertEqual(output, "Fizzy")
+        output = viewModel.fizzbuzz(number: 5)
+        XCTAssertEqual(output, "Buzzy")
+        output = viewModel.fizzbuzz(number: 7)
+        XCTAssertEqual(output, "Foo")
+        output = viewModel.fizzbuzz(number: 15)
+        XCTAssertEqual(output, "FizzyBuzzy")
+        output = viewModel.fizzbuzz(number: 21)
+        XCTAssertEqual(output, "FizzyFoo")
+        output = viewModel.fizzbuzz(number: 35)
+        XCTAssertEqual(output, "BuzzyFoo")
+        output = viewModel.fizzbuzz(number: 105)
+        XCTAssertEqual(output, "FizzyBuzzyFoo")
+        output = viewModel.fizzbuzz(number: 2)
+        XCTAssertEqual(output, "2")
+        output = viewModel.fizzbuzz(number: 4)
+        XCTAssertEqual(output, "4")
+        output = viewModel.fizzbuzz(number: 0)
+        XCTAssertEqual(output, String())
     }
 
 }
