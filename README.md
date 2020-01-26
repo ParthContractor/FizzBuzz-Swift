@@ -20,6 +20,8 @@ Fizz Buzz Demo App with dynamic configuration within app
   * Offline storage(Configuration persistence) not required for the demo
   * It is ok to live with simple UI for demo purpose.
   * User input must be restricted.For demo purpose the range for number is 0 to 10000(Can be changed from application constants)
+  * Default config within app constants: [3 : "Fizzy", 5 : "Buzzy", 7 : "Foo", 9 : "Bar"]
+  * Above mentioned config can be changed and new config can be added in settings to reflect change dynamically.
 * User Interface and Application Demo link
   * Youtube link: https://youtu.be/bRmTl0Gsdz0
 * Limitations/known issues
