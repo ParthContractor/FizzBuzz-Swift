@@ -40,7 +40,7 @@ extension UIViewController {
         })
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if let key = alert.textFields?.first?.text, let value = alert.textFields?[1].text, let intKey = Int(key) {
+            if let key = alert.textFields?.first?.text, let value = alert.textFields?[1].text, let intKey = Int(key), intKey <= AppConstants.fizzBuzzMaxValue {
                 callback(intKey, value)
             }
         }))
