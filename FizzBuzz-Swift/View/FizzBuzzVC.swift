@@ -94,7 +94,8 @@ class FizzBuzzVC: UIViewController {
         UIView.transition(with: (self.navigationController?.view)!, duration: 0.75, options: .transitionFlipFromRight, animations: {
             let configVC = FizzBuzzSettingsVC(nibName: "FizzBuzzSettingsVC", bundle: nil)
             configVC.viewModel.configurationDict = self.viewModel.fizzBuzzModel.configDict
-           
+            configVC.viewModel.configDictKeysArray = self.viewModel.fizzBuzzModel.configDict.keys.sorted()
+
             configVC
                 .viewModel
                 .fizzBuzzConfigObject

@@ -11,6 +11,8 @@ import RxSwift
 
 class FizzBuzzSettingsVC: UIViewController {
         
+    @IBOutlet var tableViewConfigurations: UITableView!
+
     var viewModel = FizzBuzzSettingsViewModel()
     let disposeBag = DisposeBag()
 
@@ -25,34 +27,15 @@ class FizzBuzzSettingsVC: UIViewController {
         let btnAdd = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneTapped))
         navigationItem.rightBarButtonItems = [btnDone, btnAdd]
+        tableViewConfigurations.register(FizzBuzzSettingsCell.self, forCellReuseIdentifier: FizzBuzzSettingsCell.cellIdentifier)
     }
 
     // MARK: - Actions/Events
     @objc func addTapped() {
-        let alert = UIAlertController(title: "Add New Key/Value Pair", message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        alert.addTextField(configurationHandler: { textField in
-            textField.textColor = UIColor.ThemeColor.appThemeColor
-            textField.borderStyle = .roundedRect
-            textField.keyboardType = .numberPad
-            textField.placeholder = "Enter key"
+        showAlertWithKeyPairTextFields(title: "Add/Update Key/Value Pair", callback: { (intKey, value) in
+            self.viewModel.updateConfigDict(intKey, value)
+            self.tableViewConfigurations.reloadData()
         })
-        
-        alert.addTextField(configurationHandler: { textField in
-            textField.textColor = UIColor.ThemeColor.appThemeColor
-            textField.borderStyle = .roundedRect
-            textField.keyboardType = .default
-            textField.placeholder = "Enter value"
-        })
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if let key = alert.textFields?.first?.text, let value = alert.textFields?[1].text, let intKey = Int(key) {
-                self.viewModel.updateConfigDict(intKey, value)
-            }
-        }))
-        
-        present(alert, animated: true)
     }
     
     @objc func doneTapped() {
@@ -62,5 +45,48 @@ class FizzBuzzSettingsVC: UIViewController {
             _ = self.navigationController?.popViewController(animated: false)
         })
     }
+}
 
+extension FizzBuzzSettingsVC: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: - Table view data source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.configDictKeysArray.count
+    }
+    
+    //No order will be preserved because dictionary(configurationDict) is being used as data source here...
+    //If sorting or ordering needed, we can get converted array in future for display purpose..
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FizzBuzzSettingsCell.cellIdentifier, for: indexPath)
+        let key   = viewModel.configDictKeysArray[indexPath.row]
+        let value = viewModel.configurationDict[key]
+        cell.textLabel?.numberOfLines = 1
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.textLabel?.text = "\(key)"
+        if let val = value {
+            cell.detailTextLabel?.text = val
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let key   = viewModel.configDictKeysArray[indexPath.row]
+        let value = viewModel.configurationDict[key]
+        
+        if let val = value {
+            showAlertWithKeyPairTextFields(title: "Edit Key/Value Pair", key: String(key), value: val, callback: { (intKey, value) in
+                self.viewModel.configurationDict.removeValue(forKey: key)
+                self.viewModel.updateConfigDict(intKey, value)
+                self.tableViewConfigurations.reloadData()
+            })
+        }
+    }
 }
