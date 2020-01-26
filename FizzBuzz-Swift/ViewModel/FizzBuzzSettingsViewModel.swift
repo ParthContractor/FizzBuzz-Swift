@@ -6,4 +6,15 @@
 //  Copyright © 2020 Parth. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+
+class FizzBuzzSettingsViewModel {
+
+    public let fizzBuzzConfigObject : PublishSubject<FizzBuzzConfigModel> = PublishSubject()
+
+    var configurationDict = AppConstants.defaultConfig
+
+    func updateConfigDict(_ key: Int, _ value: String){
+        configurationDict.updateValue(value, forKey: key)
+    }    
+}

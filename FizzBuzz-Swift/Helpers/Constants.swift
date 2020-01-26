@@ -9,7 +9,7 @@
 import UIKit
 
 struct AppConstants {
-    static let dataUnAvailable = "N/A"
+    //predefined range between which user input is restricted..
     static let fizzBuzzMinValue = 0
     static let fizzBuzzMaxValue = 10000
     

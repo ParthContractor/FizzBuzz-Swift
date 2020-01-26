@@ -85,16 +85,18 @@ class FizzBuzzVC: UIViewController {
         self.title = "FizzBuzz Demo"
         let btnSettings = UIBarButtonItem(image: UIImage(named: "SettingsIcon")
             ,landscapeImagePhone: UIImage(named: "SettingsIcon")
-            , style: .plain, target: self, action: #selector(settings))
+            , style: .plain, target: self, action: #selector(settingsTapped))
         navigationItem.rightBarButtonItem = btnSettings
     }
     
     // MARK: - Actions/Events
-    @objc func settings() {
+    @objc func settingsTapped() {
         UIView.transition(with: (self.navigationController?.view)!, duration: 0.75, options: .transitionFlipFromRight, animations: {
             let configVC = FizzBuzzSettingsVC(nibName: "FizzBuzzSettingsVC", bundle: nil)
-            
+            configVC.viewModel.configurationDict = self.viewModel.fizzBuzzModel.configDict
+           
             configVC
+                .viewModel
                 .fizzBuzzConfigObject
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { (output) in
@@ -117,7 +119,7 @@ class FizzBuzzVC: UIViewController {
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        txtInput.text = "\(Int((round(sender.value))))"
+        txtInput.text = "\(Int(sender.value))"
         getResult()
     }
     

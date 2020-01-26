@@ -9,6 +9,8 @@
 import Foundation
 
 struct Utility {
+    
+    //To validate input(restrict user to enter value between defined range)..
     static func isInputValid(_ strInput: String) -> Bool {
         if let number = Int(strInput) {
             if number <= AppConstants.fizzBuzzMaxValue {

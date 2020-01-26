@@ -46,5 +46,23 @@ class FizzBuzz_SwiftTests: XCTestCase {
         output = viewModel.fizzbuzz(number: 0)
         XCTAssertEqual(output, String())
     }
+    
+    func testFizzBuzzSettingsViewModel() {
+        let viewModel = FizzBuzzSettingsViewModel()
+        viewModel.updateConfigDict(11, "BooZoo")
+        XCTAssertNotNil(viewModel.configurationDict[11])
+        viewModel.updateConfigDict(11, "BooZooBoo")
+        XCTAssertNotNil(viewModel.configurationDict[11])
+        guard let valueFor11 = viewModel.configurationDict[11] else {
+            XCTFail("Expected non-nil user and address")
+            return
+        }
+        XCTAssertEqual(valueFor11, "BooZooBoo")
+    }
 
+    func testUtility() {
+        XCTAssertEqual(Utility.isInputValid("ddd"), false)
+        XCTAssertEqual(Utility.isInputValid("101"), true)
+        XCTAssertEqual(Utility.isInputValid(""), true)
+       }
 }

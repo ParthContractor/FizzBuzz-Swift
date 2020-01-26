@@ -12,8 +12,9 @@ import RxCocoa
 class FizzBuzzViewModel {
         
     public let fizzBuzzOutput : PublishSubject<String> = PublishSubject()
-    private var fizzBuzzModel = FizzBuzzConfigModel(configDict: AppConstants.defaultConfig)
+    private(set) var fizzBuzzModel = FizzBuzzConfigModel(configDict: AppConstants.defaultConfig)
 
+    //To mutate the model based on settings/config changes/dynamic update feature..
     func updateFizzBuzzModel(_ model: FizzBuzzConfigModel){
         fizzBuzzModel = model
     }
