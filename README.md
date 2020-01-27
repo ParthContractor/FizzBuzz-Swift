@@ -4,7 +4,7 @@ Fizz Buzz Demo App with dynamic configuration within app
 
 <---Overview--->
 * Programming paradigm
-  * Combination of OOP and Reactive Programming(Using RxSwift and RxCocoa)
+  * Combination of OOP and Reactive Programming(Using RxSwift)
 * Application Architecture
   * Combination of Modular and MVVM
 * Included efforts to adhere to Engineering best practices
