@@ -26,10 +26,6 @@ Fizz Buzz Demo App with dynamic configuration within app
   * Youtube link: https://youtu.be/bRmTl0Gsdz0
 * Limitations/known issues
   * Settings Icon/assets not properly sliced because of sample code/demo code 
-* Future scalability/requirements/features possibility/Scope of improvements
-  * Delete and edit note option for user's own landmark remarks(back-end and required helper methods already in place; only UI could be added/modified if we need to add this functionality)
-  * Display all records of landmark remarks in list view with possible differentiation of user's notes vs othe in seperate screen
-  * Rather than relying upon third party BAAS, In-house backend development/server setup and possible/efficient web services development(including proper pagination) provided application scales in future with more users and landmark remark registration in application.
 * Approach overview
   * Stick to MVP first with possibility of scaling slowly/periodically.
   * Write modular and maintainable code with proper architecture, standard practices and documentation.
