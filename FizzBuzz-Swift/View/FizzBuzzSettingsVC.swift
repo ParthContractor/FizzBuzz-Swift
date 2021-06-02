@@ -82,10 +82,10 @@ extension FizzBuzzSettingsVC: UITableViewDataSource, UITableViewDelegate {
         let value = viewModel.configurationDict[key]
         
         if let val = value {
-            showAlertWithKeyPairTextFields(title: "Edit Key/Value Pair", key: String(key), value: val, callback: { (intKey, value) in
-                self.viewModel.configurationDict.removeValue(forKey: key)
-                self.viewModel.updateConfigDict(intKey, value)
-                self.tableViewConfigurations.reloadData()
+            showAlertWithKeyPairTextFields(title: "Edit Key/Value Pair", key: String(key), value: val, callback: { [weak self] (intKey, value) in
+                self?.viewModel.configurationDict.removeValue(forKey: key)
+                self?.viewModel.updateConfigDict(intKey, value)
+                self?.tableViewConfigurations.reloadData()
             })
         }
     }

@@ -100,9 +100,9 @@ class FizzBuzzVC: UIViewController {
                 .viewModel
                 .fizzBuzzConfigObject
                 .observeOn(MainScheduler.instance)
-                .subscribe(onNext: { (output) in
-                    self.viewModel.updateFizzBuzzModel(output)
-                    self.getResult()
+                .subscribe(onNext: { [weak self] (output) in
+                    self?.viewModel.updateFizzBuzzModel(output)
+                    self?.getResult()
                     print("notified dict output..\(output)")
                 })
                 .disposed(by: self.disposeBag)
